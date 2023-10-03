@@ -15,7 +15,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: Habits_Page(),
+      home: const Habits_Page(),
     );
   }
 }

@@ -8,10 +8,10 @@ class HabitNameAlert extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController habitNameController = TextEditingController();
     return AlertDialog(
-        title: Text("Add a new habit"),
+        title: const Text("Add a new habit"),
         content: TextField(
           controller: habitNameController,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             labelText: "Habit Name",
           ),
         ),
@@ -20,14 +20,14 @@ class HabitNameAlert extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             },
-            child: Text("Cancel"),
+            child: const Text("Cancel"),
           ),
           TextButton(
             onPressed: () {
-              this.saveHabitName(habitNameController.text);
+              saveHabitName(habitNameController.text);
               Navigator.pop(context);
             },
-            child: Text("Add"),
+            child: const Text("Add"),
           ),
         ],
       );

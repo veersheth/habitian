@@ -16,8 +16,8 @@ class _HabitTileState extends State<HabitTile> {
     return Container(
       height: 60,
       width: double.infinity,
-      margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: Theme.of(context).colorScheme.primaryContainer,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/widgets/fab_add_habit.dart';
-import 'package:habit_tracker/widgets/habit_name_alert.dart';
+import 'package:habitian/widgets/fab_add_habit.dart';
+import 'package:habitian/widgets/habit_name_alert.dart';
 import '../widgets/habit_tile.dart';
 
 class Habits_Page extends StatefulWidget {
@@ -36,7 +36,7 @@ class _Habits_PageState extends State<Habits_Page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Your Habits"),
+        title: const Text("Your Habits"),
       ),
       floatingActionButton: FABAddHabit(
         addHabit: (newHabitName) {addHabit(newHabitName);},
@@ -52,7 +52,7 @@ class _Habits_PageState extends State<Habits_Page> {
                 builder: (BuildContext context) {
                 return Container(
                   height: 100,
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
                     color: Theme.of(context).colorScheme.surface,
@@ -62,7 +62,7 @@ class _Habits_PageState extends State<Habits_Page> {
                     children: [
                       ElevatedButton(
                         style: ButtonStyle(
-                          elevation: MaterialStatePropertyAll(0),
+                          elevation: const MaterialStatePropertyAll(0),
                           backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.secondaryContainer),
                           iconColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.onSecondaryContainer),
                         ),
@@ -79,11 +79,11 @@ class _Habits_PageState extends State<Habits_Page> {
                             }
                           );
                         }, 
-                        child: Text("Rename"),
+                        child: const Text("Rename"),
                       ),
                       ElevatedButton(
                         style: ButtonStyle(
-                          elevation: MaterialStatePropertyAll(0),
+                          elevation: const MaterialStatePropertyAll(0),
                           backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.errorContainer),
                           iconColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.onErrorContainer),
                         ),
@@ -93,18 +93,18 @@ class _Habits_PageState extends State<Habits_Page> {
                           });
                           Navigator.pop(context);
                         }, 
-                        child: Text("Delete"),
+                        child: const Text("Delete"),
                       ),
                       ElevatedButton(
                         style: ButtonStyle(
-                          elevation: MaterialStatePropertyAll(0),
+                          elevation: const MaterialStatePropertyAll(0),
                           backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.secondaryContainer),
                           iconColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.onSecondaryContainer),
                         ),
                         onPressed: () {
                           Navigator.pop(context);
                         }, 
-                        child: Text("Cancel"),
+                        child: const Text("Cancel"),
                       ),
                     ],
                   ),
