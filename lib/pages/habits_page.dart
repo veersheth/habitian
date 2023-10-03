@@ -19,7 +19,7 @@ List todaysHabits = [
 
 class _Habits_PageState extends State<Habits_Page> {
 
-  void toggleHabitStatus(index) {
+  void toggleHabitStatus(context, index) {
     setState(() {
       todaysHabits[index][1] = !todaysHabits[index][1];
     });
@@ -43,11 +43,14 @@ class _Habits_PageState extends State<Habits_Page> {
       body: ListView.builder(
         itemCount: todaysHabits.length, 
         itemBuilder: (context, index) {
-          return HabitTile(
-            key: Key(index.toString()),
-            habitName: todaysHabits[index][0],
-            habitStatus: todaysHabits[index][1],
-            toggleHabitStatus: (context) {toggleHabitStatus(index);},
+          return GestureDetector(
+            onTap: () {toggleHabitStatus(context, index);},
+            child: HabitTile(
+              key: Key(index.toString()),
+              habitName: todaysHabits[index][0],
+              habitStatus: todaysHabits[index][1],
+              toggleHabitStatus: (context) {toggleHabitStatus(context, index);},
+            ),
           );
         },
       ),
