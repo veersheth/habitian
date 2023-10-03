@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/Habit_Tile.dart';
+import 'package:habit_tracker/widgets/fab_add_habit.dart';
+import '../widgets/habit_tile.dart';
 
 class Habits_Page extends StatefulWidget {
   const Habits_Page({super.key});
@@ -23,12 +24,21 @@ class _Habits_PageState extends State<Habits_Page> {
       todaysHabits[index][1] = !todaysHabits[index][1];
     });
   }
-  
+
+  void addHabit(String newHabitName) {
+    setState(() {
+      todaysHabits.add([newHabitName, false]);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Your Habits"),
+      ),
+      floatingActionButton: FABAddHabit(
+        addHabit: (newHabitName) {addHabit(newHabitName);},
       ),
       body: ListView.builder(
         itemCount: todaysHabits.length, 

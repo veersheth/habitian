@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'pages/HabitsPage.dart';
+import 'pages/habits_page.dart';
 
 void main() {
   runApp(const MainApp());
