@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habit_tracker/widgets/habit_name_alert.dart';
 
 class FABAddHabit extends StatelessWidget {
   final Function addHabit;
@@ -7,30 +8,10 @@ class FABAddHabit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget AddHabitDialog() {
-      TextEditingController habitNameController = TextEditingController();
-      return AlertDialog(
-        title: Text("Add a new habit"),
-        content: TextField(
-          controller: habitNameController,
-          decoration: InputDecoration(
-            labelText: "Habit Name",
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: Text("Cancel"),
-          ),
-          TextButton(
-            onPressed: () {
-              this.addHabit(habitNameController.text);
-              Navigator.pop(context);
-            },
-            child: Text("Add"),
-          ),
-        ],
+      return HabitNameAlert(
+        saveHabitName: (habitName) {
+          this.addHabit(habitName);
+        }
       );
     }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/widgets/fab_add_habit.dart';
+import 'package:habit_tracker/widgets/habit_name_alert.dart';
 import '../widgets/habit_tile.dart';
 
 class Habits_Page extends StatefulWidget {
@@ -45,6 +46,71 @@ class _Habits_PageState extends State<Habits_Page> {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {toggleHabitStatus(context, index);},
+            onLongPress: () {
+              showModalBottomSheet(
+                context: context, 
+                builder: (BuildContext context) {
+                return Container(
+                  height: 100,
+                  padding: EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(18),
+                    color: Theme.of(context).colorScheme.surface,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          elevation: MaterialStatePropertyAll(0),
+                          backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.secondaryContainer),
+                          iconColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.onSecondaryContainer),
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                          showDialog(context: context, builder: (context) {
+                            return HabitNameAlert(
+                              saveHabitName: (habitName) {
+                                setState(() {
+                                  todaysHabits[index][0] = habitName;
+                                  });
+                                }
+                              );
+                            }
+                          );
+                        }, 
+                        child: Text("Rename"),
+                      ),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          elevation: MaterialStatePropertyAll(0),
+                          backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.errorContainer),
+                          iconColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.onErrorContainer),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            todaysHabits.removeAt(index);
+                          });
+                          Navigator.pop(context);
+                        }, 
+                        child: Text("Delete"),
+                      ),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          elevation: MaterialStatePropertyAll(0),
+                          backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.secondaryContainer),
+                          iconColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.onSecondaryContainer),
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        }, 
+                        child: Text("Cancel"),
+                      ),
+                    ],
+                  ),
+                );
+              });
+            },
             child: HabitTile(
               key: Key(index.toString()),
               habitName: todaysHabits[index][0],
