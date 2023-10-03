@@ -1,3 +1,3 @@
-# habit_tracker
+# habitian
 
-A new Flutter project.
+flutter based habit tracker, still in development
