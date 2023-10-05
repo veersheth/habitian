@@ -27,7 +27,7 @@ class HabitNameAlert extends StatelessWidget {
               saveHabitName(habitNameController.text);
               Navigator.pop(context);
             },
-            child: const Text("Add"),
+            child: const Text("OK"),
           ),
         ],
       );

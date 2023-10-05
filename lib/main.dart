@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'pages/habits_page.dart';
 
@@ -14,8 +15,11 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         useMaterial3: true,
+        textTheme: GoogleFonts.cabinTextTheme(
+         Theme.of(context).textTheme,
+       ),
       ),
-      home: const Habits_Page(),
+      home: const HabitsPage(),
     );
   }
 }

@@ -3,11 +3,11 @@ import 'package:habitian/widgets/fab_add_habit.dart';
 import 'package:habitian/widgets/habit_name_alert.dart';
 import '../widgets/habit_tile.dart';
 
-class Habits_Page extends StatefulWidget {
-  const Habits_Page({super.key});
+class HabitsPage extends StatefulWidget {
+  const HabitsPage({super.key});
 
   @override
-  State<Habits_Page> createState() => _Habits_PageState();
+  State<HabitsPage> createState() => _HabitsPageState();
 }
 
 List todaysHabits = [
@@ -18,7 +18,7 @@ List todaysHabits = [
   ["Journal", false ],
 ];
 
-class _Habits_PageState extends State<Habits_Page> {
+class _HabitsPageState extends State<HabitsPage> {
 
   void toggleHabitStatus(context, index) {
     setState(() {
@@ -36,7 +36,8 @@ class _Habits_PageState extends State<Habits_Page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Your Habits"),
+        centerTitle: true,
+        title: const Text("Today's Habits"),
       ),
       floatingActionButton: FABAddHabit(
         addHabit: (newHabitName) {addHabit(newHabitName);},

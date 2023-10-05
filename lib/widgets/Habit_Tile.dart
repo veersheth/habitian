@@ -16,10 +16,10 @@ class _HabitTileState extends State<HabitTile> {
     return Container(
       height: 60,
       width: double.infinity,
-      margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+      margin: const EdgeInsets.only(left: 30, right: 30, bottom: 10),
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(20),
         color: Theme.of(context).colorScheme.primaryContainer,
       ),
       child: Row(
@@ -28,13 +28,13 @@ class _HabitTileState extends State<HabitTile> {
           Text(
             widget.habitName, 
             style: TextStyle(
+              fontSize: 16,
               color: Theme.of(context).colorScheme.onPrimaryContainer,
             ),
           ),
           Checkbox(
             value: widget.habitStatus, 
             onChanged: (context) {
-              print("tapped");
               widget.toggleHabitStatus(context);
               },
             ),

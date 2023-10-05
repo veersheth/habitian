@@ -7,7 +7,7 @@ class FABAddHabit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget AddHabitDialog() {
+    Widget addHabitDialog() {
       return HabitNameAlert(
         saveHabitName: (habitName) {
           addHabit(habitName);
@@ -19,7 +19,7 @@ class FABAddHabit extends StatelessWidget {
       onPressed: () {
         showDialog(
           context: context, 
-          builder: (context) => AddHabitDialog(),
+          builder: (context) => addHabitDialog(),
         );
       },
       child: const Icon(Icons.add),
