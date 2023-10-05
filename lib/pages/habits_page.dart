@@ -37,12 +37,15 @@ class _HabitsPageState extends State<HabitsPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        titleTextStyle: Theme.of(context).textTheme.headlineSmall,
         title: const Text("Today's Habits"),
+        toolbarHeight: 80,
       ),
       floatingActionButton: FABAddHabit(
         addHabit: (newHabitName) {addHabit(newHabitName);},
       ),
       body: ListView.builder(
+        // padding: const EdgeInsets.only(top: 20),
         itemCount: todaysHabits.length, 
         itemBuilder: (context, index) {
           return GestureDetector(
